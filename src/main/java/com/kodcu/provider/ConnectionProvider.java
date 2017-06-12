@@ -23,10 +23,6 @@ import java.util.logging.Logger;
  */
 public class ConnectionProvider {
 
-    private final static String databaseName   = "yourDatabaseName";
-    private final static String collectionName = "yourCollectionName";
-    private final static String connectionURL  = "yourConnectionURL";
-
     private static ConnectionProvider instance = null;
     private static Object lock = new Object();
 
