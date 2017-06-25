@@ -35,6 +35,7 @@ public class MongoAtlas {
             QueryHelper.executeRegexQuery("subject", "NoSQL.*MongoDB", collection);
             QueryHelper.groupQuery("speaker", "Hüseyin Akdoğan", collection);
 
+            QueryHelper.getAllDocuments(collection);
         } catch (Exception ex) {
             Logger.getLogger(MongoAtlas.class.getName()).log(Level.SEVERE, null, ex);
         } finally {

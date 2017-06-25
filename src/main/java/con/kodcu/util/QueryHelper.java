@@ -60,6 +60,12 @@ public class QueryHelper {
         System.out.println("***************** groupQuery *****************");
     }
 
+    public static void getAllDocuments(MongoCollection collection){
+        System.out.println("\n****************** list all documents ******************");
+        collection.find().forEach(getBlock());
+        System.out.println("****************** list all documents ******************");
+    }
+
     public static void dropCollection(MongoCollection collection){
         collection.drop();
         System.out.println("Collection is reset\n");

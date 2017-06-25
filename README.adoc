@@ -1,5 +1,18 @@
-# MongoAtlas
+= MongoAtlas
 
 image:https://travis-ci.org/hakdogan/MongoAtlas.svg?branch=master["Build Status", link="https://travis-ci.org/hakdogan/MongoAtlas"]
 
-This application simply exemplifies working with Mongo Atlas which is mongo cloud service.
+This application simply exemplifies working with MongoDB Stitch via Mongo Atlas which is mongo cloud service. https://www.mongodb.com/cloud/atlas[Details]
+
+
+== What's Mongo Atlas?
+
+MongoDB Atlas is a cloud-hosted MongoDB service engineered and it abstract to the management of database, setup and configuration processes from you. https://www.mongodb.com/cloud/stitch[Details]
+
+
+== What's MongoDB Stitch?
+MongoDB Stitch provides to full access to MongoDB, declarative read/write controls and integration with your choice of services.
+
+image::images/atlas.gif[]
+
+For this tutorial, I followed https://docs.mongodb.com/stitch/getting-started/first-stitch-app/[Stitch documentation] to use the JavaScript Client example.
