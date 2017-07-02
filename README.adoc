@@ -1,17 +1,16 @@
 = MongoAtlas
 
-image:https://travis-ci.org/hakdogan/MongoAtlas.svg?branch=master["Build Status", link="https://travis-ci.org/hakdogan/MongoAtlas"]
+image:https://travis-ci.org/hakdogan/MongoAtlas.svg?branch=master["Build Status", link="https://travis-ci.org/hakdogan/MongoAtlas"] image:https://badges.gitter.im/MongoAtlas/Lobby.svg[link="https://gitter.im/MongoAtlas/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge"]
 
-This application simply exemplifies working with MongoDB Stitch via Mongo Atlas which is mongo cloud service. https://www.mongodb.com/cloud/atlas[Details]
-
+This application simply exemplifies working with MongoDB Stitch via Mongo Atlas which is mongo cloud service.
 
 == What's Mongo Atlas?
 
-MongoDB Atlas is a cloud-hosted MongoDB service engineered and it abstract to the management of database, setup and configuration processes from you. https://www.mongodb.com/cloud/stitch[Details]
+MongoDB Atlas is a cloud-hosted MongoDB service engineered and it abstract to the management of database, setup and configuration processes from you. https://www.mongodb.com/cloud/atlas[Details]
 
 
 == What's MongoDB Stitch?
-MongoDB Stitch provides to full access to MongoDB, declarative read/write controls and integration with your choice of services.
+MongoDB Stitch provides to full access to MongoDB, declarative read/write controls and integration with your choice of services. https://www.mongodb.com/cloud/stitch[Details]
 
 image::images/atlas.gif[]
 
