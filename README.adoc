@@ -1,6 +1,7 @@
 = MongoAtlas
 
 image:https://travis-ci.org/hakdogan/MongoAtlas.svg?branch=master["Build Status", link="https://travis-ci.org/hakdogan/MongoAtlas"] image:https://badges.gitter.im/MongoAtlas/Lobby.svg[link="https://gitter.im/MongoAtlas/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge"]
+image:https://img.shields.io/codecov/c/github/codecov/example-java.svg[Codecov]
 
 This application simply exemplifies working with MongoDB Stitch via Mongo Atlas which is mongo cloud service.
 
