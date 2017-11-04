@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Mongo Atlas Tutorial</title>
+
+    <script src="https://s3.amazonaws.com/stitch-sdks/js/library/stable/stitch.min.js"></script>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+
+
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- jQuery -->
+
+</head>
+
+<body>
+
+<div class="container">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Mongo Atlas</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Links
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#">Action</a>
+                        <a class="dropdown-item" href="#">Another action</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Something else here</a>
+                    </div>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </div>
+    </nav>
+
+    <div class="jumbotron">
+        <h1>Use Stitch via Atlas</h1>
+        <p class="lead">This application simply exemplifies working with MongoDB Stitch via Mongo Atlas which is mongo cloud service.</p>
+        <p><a class="btn btn-lg btn-success" href="#" role="button">Let's go!</a></p>
+    </div>
+
+    <div class="row marketing">
+        <div class="col-lg-6">
+            <h4>What's Mongo Atlas</h4>
+            <p>MongoDB Atlas is a cloud-hosted MongoDB service engineered and it abstract to the management of database, setup and configuration processes from you.</p>
+        </div>
+
+        <div class="col-lg-6">
+            <h4>What's MongoDB Stitch?</h4>
+            <p>MongoDB Stitch provides to full access to MongoDB, declarative read/write controls and integration with your choice of services.</p>
+        </div>
+
+    </div>
+
+    <table width="100%">
+        <tr>
+            <td>
+                    <h4>JavaScript Client</h4>
+                    <form class="form-inline">
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="new_comment" placeholder="Comment">
+                        </div>
+                        <button id="addComment" class="btn btn-light">Save Comment</button>
+                    </form>
+
+            </td>
+
+            <td>
+                <h4>Query</h4>
+                <form class="form-inline">
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="query_text" placeholder="Query">
+                    </div>
+                    <button id="queryButton" class="btn btn-light">Execute Query</button>
+                </form>
+            </td>
+        </tr>
+    </table>
+
+    <br/>
+    <div id="comments">
+        <table id="myTable" class="table table-hover">
+            <tr>
+                <th>Comment</th>
+            </tr>
+        </table>
+    </div>
+
+    <div id="result" style="display: none">
+        <button type="button" class="btn btn-primary">
+            Text search matches <span id="matchCount" class="badge badge-light">4</span>
+        </button>
+    </div>
+    <br/>
+
+    <footer class="footer">
+        <p>&copy; 2017 Kodsis, Inc.</p>
+    </footer>
+
+</div> <!-- /container -->
+
+<script>
+
+    const client = new stitch.StitchClient('blog_comments-yxzmy');
+    const db = client.service('mongodb', 'mongodb-atlas').db('blog');
+
+    function displayComments() {
+        db.collection('comments').find({}).then(docs => {
+            var html = docs.map(c => "<tr><td>" + c.comment + "</td></tr>").join("");
+        var head = "<tr><th>Comment</th></tr>";
+        document.getElementById("myTable").innerHTML = head + html;
+    });
+    }
+
+    function displayCommentsOnLoad() {
+        client.login().then(displayComments)
+    }
+
+    function addComments() {
+        event.preventDefault();
+        var c = document.getElementById("new_comment");
+        db.collection("comments").insert({owner_id : client.authedId(),
+            comment: c.value})
+            .then(displayComments);
+        c.value = "";
+        $("#result").hide();
+    }
+
+
+    $(document).ready(function() {
+
+        displayCommentsOnLoad();
+
+        $("#queryButton").click(function(){
+
+            event.preventDefault();
+
+            if($("#query_text").val() == '')
+                return;
+
+            $.ajax({
+                url: "/query",
+                type: "POST",
+                data: $("#query_text").val(),
+                success: function (result) {
+                    $("#matchCount").append(result);
+                },
+                error: function(result) {
+                    alert('error');
+                }
+            });
+
+            $("#query_text").val('');
+            $("#matchCount").html('');
+            $("#result").show();
+        });
+
+        $("#addComment").click(function () {
+            addComments();
+        });
+
+    });
+
+</script>
+</body>
+</html>
+

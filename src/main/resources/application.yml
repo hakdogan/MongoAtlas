@@ -1,0 +1,4 @@
+app:
+  connectionurl: your connection URL here
+  database: blog
+  collection: comments

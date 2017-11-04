@@ -1,12 +1,12 @@
 package com.kodcu.util;
 
-import com.kodcu.provider.ConnectionProvider;
 import com.mongodb.Block;
 import com.mongodb.client.FindIterable;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.model.Accumulators;
 import com.mongodb.client.model.Aggregates;
 import com.mongodb.client.model.Filters;
+import lombok.extern.slf4j.Slf4j;
 import org.bson.Document;
 import org.springframework.stereotype.Component;
 
@@ -15,13 +15,12 @@ import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.util.Arrays;
 import java.util.Date;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  * Created by hakdogan on 12/06/2017.
  */
 @Component
+@Slf4j
 public class QueryHelper {
 
 //    public static void insertRecord(String subject, String speaker, Date date, double time, MongoCollection collection) {
@@ -64,7 +63,7 @@ public class QueryHelper {
 
     public void dropCollection(MongoCollection collection){
         collection.drop();
-        Logger.getLogger(QueryHelper.class.getName()).log(Level.INFO, "The collection was dropped!");
+        log.info("The collection was dropped!");
     }
 
     public Date getSpecificDate(int year, int month, int dayOfMonth, int hour, int minute){
