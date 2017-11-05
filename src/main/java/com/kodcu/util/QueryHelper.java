@@ -23,24 +23,6 @@ import java.util.Date;
 @Slf4j
 public class QueryHelper {
 
-//    public static void insertRecord(String subject, String speaker, Date date, double time, MongoCollection collection) {
-//
-//        try {
-//
-//            Document document = new Document("subject", subject)
-//                    .append("speaker", speaker)
-//                    .append("date", date)
-//                    .append("time", time);
-//
-//            collection.insertOne(document);
-//            Logger.getLogger(QueryHelper.class.getName()).info("Added entry: " + document);
-//
-//        } catch (Exception ex) {
-//            Logger.getLogger(QueryHelper.class.getName()).log(Level.SEVERE, null, ex);
-//        }
-//    }
-
-
     public FindIterable whereQuery(String field, String value, MongoCollection collection){
         return collection.find(new Document(field, value));
     }

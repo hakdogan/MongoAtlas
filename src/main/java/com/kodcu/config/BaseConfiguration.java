@@ -24,7 +24,6 @@ public class BaseConfiguration {
         MongoClientURI uri = new MongoClientURI(props.getConnectionurl());
         MongoClient mongoClient = new MongoClient(uri);
         MongoDatabase db  = mongoClient.getDatabase(props.getDatabase());
-
         return db.getCollection(props.getCollection());
     }
 }

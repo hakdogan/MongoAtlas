@@ -17,4 +17,5 @@ public class ConfigProps {
     private String connectionurl;
     private String database;
     private String collection;
+    private String indexesfield;
 }
