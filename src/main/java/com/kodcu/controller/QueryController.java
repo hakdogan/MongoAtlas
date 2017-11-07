@@ -1,9 +1,6 @@
 package com.kodcu.controller;
 
-import com.kodcu.prop.ConfigProps;
-import com.mongodb.client.MongoCollection;
-import com.mongodb.client.model.Filters;
-import com.mongodb.client.model.Indexes;
+import com.kodcu.dao.QueryDAO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -18,15 +15,11 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class QueryController {
 
     @Autowired
-    private MongoCollection mongoCollection;
-
-    @Autowired
-    private ConfigProps props;
+    private QueryDAO dao;
 
     @RequestMapping(value = "/query", method = RequestMethod.POST)
     @ResponseBody
     public String executeQuery(@RequestBody String postPayload){
-        mongoCollection.createIndex(Indexes.text(props.getIndexesfield()));
-        return String.valueOf(mongoCollection.count(Filters.text(postPayload)));
+        return dao.getMatchCountByPrefix(postPayload);
     }
 }

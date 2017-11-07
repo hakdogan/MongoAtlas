@@ -1,7 +1,7 @@
 package com.kodcu.controller;
 
-import com.kodcu.util.QueryHelper;
-import com.mongodb.client.MongoCollection;
+import com.kodcu.dao.QueryDAO;
+import com.kodcu.prop.ConfigProps;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,15 +15,14 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class DropController {
 
     @Autowired
-    private MongoCollection collection;
+    private QueryDAO dao;
 
     @Autowired
-    private QueryHelper queryHelper;
+    private ConfigProps props;
 
     @RequestMapping(value = "/drop", method = RequestMethod.GET)
     @ResponseBody
     public String dropCollection(){
-        queryHelper.dropCollection(collection);
-        return "The collection was dropped!";
+        return dao.dropCollection(props.getCollection());
     }
 }

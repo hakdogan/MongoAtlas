@@ -163,6 +163,7 @@
                 url: "/query",
                 type: "POST",
                 data: $("#query_text").val(),
+                contentType: "text/plain; charset=utf-8",
                 success: function (result) {
                     $("#matchCount").append(result);
                 },
