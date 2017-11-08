@@ -3,7 +3,7 @@ package com.kodcu.dao;
  * Created by hakdogan on 07/11/2017
  */
 
-import com.kodcu.Entity.Comments;
+import com.kodcu.entity.Comments;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoOperations;
 import org.springframework.data.mongodb.core.query.Criteria;

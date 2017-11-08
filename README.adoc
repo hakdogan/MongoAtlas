@@ -2,8 +2,9 @@
 
 image:https://travis-ci.org/hakdogan/MongoAtlas.svg?branch=master["Build Status", link="https://travis-ci.org/hakdogan/MongoAtlas"]
 image:https://img.shields.io/coverity/scan/3997.svg[Coverity Scan]
-image:https://badges.gitter.im/MongoAtlas/Lobby.svg[link="https://gitter.im/MongoAtlas/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge"]
 image:https://img.shields.io/docker/pulls/hakdogan/mongoatlas.svg["Docker Pulls,link="https://hub.docker.com/r/hakdogan/mongoatlas"]
+image:https://codecov.io/gh/hakdogan/MongoAtlas/branch/master/graph/badge.svg["Codecove Coverage,link="https://codecov.io/gh/hakdogan/MongoAtlas"]
+image:https://badges.gitter.im/MongoAtlas/Lobby.svg[link="https://gitter.im/MongoAtlas/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge"]
 
 This application simply exemplifies working with MongoDB Stitch via Mongo Atlas which is mongo cloud service.
 

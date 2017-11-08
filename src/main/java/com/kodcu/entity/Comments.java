@@ -1,4 +1,4 @@
-package com.kodcu.Entity;
+package com.kodcu.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
