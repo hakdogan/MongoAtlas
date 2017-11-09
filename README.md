@@ -25,14 +25,15 @@ read/write controls and integration with your choice of services.
 
 Run
 ===
-
-mvn spring-boot:run&lt;/programlisting&gt;
+````
+mvn spring-boot:run
+````
 
 Run with Docker
 ===============
-
-docker run -d --rm -p 8080:8080
-hakdogan/mongoatlas&lt;/programlisting&gt;
+````
+docker run -d --rm -p 8080:8080 hakdogan/mongoatlas
+````
 
 ![](images/atlas.gif)
 
