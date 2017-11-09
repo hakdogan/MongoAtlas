@@ -1,9 +1,6 @@
-![Build
-Status](https://travis-ci.org/hakdogan/MongoAtlas.svg?branch=master)
-!["Codecove
-Coverage](https://codecov.io/gh/hakdogan/MongoAtlas/branch/master/graph/badge.svg)
-!["Docker
-Pulls](https://img.shields.io/docker/pulls/hakdogan/mongoatlas.svg)
+![Build Status](https://travis-ci.org/hakdogan/MongoAtlas.svg?branch=master)
+!["Codecove Coverage](https://codecov.io/gh/hakdogan/MongoAtlas/branch/master/graph/badge.svg)
+!["Docker Pulls](https://img.shields.io/docker/pulls/hakdogan/mongoatlas.svg)
 ![](https://badges.gitter.im/MongoAtlas/Lobby.svg)
 
 This application simply exemplifies working with MongoDB Stitch via
