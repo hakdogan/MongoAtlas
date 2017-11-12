@@ -2,3 +2,6 @@ app:
   connectionurl: mongodb://hakdogan:10711453@kodsis-shard-00-00-xpg1f.mongodb.net:27017,kodsis-shard-00-01-xpg1f.mongodb.net:27017,kodsis-shard-00-02-xpg1f.mongodb.net:27017/test?ssl=true&replicaSet=kodsis-shard-0&authSource=admin
   database: blog
   collection: comments
+
+server:
+  port: 8090
